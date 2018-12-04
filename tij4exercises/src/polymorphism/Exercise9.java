@@ -2,7 +2,15 @@ package polymorphism;
 
 import java.util.Random;
 
+import static net.mindview.util.Print.*;
+
 class Rodent {
+	private Description d = new Description("rodent description");
+
+	public Rodent() {
+		print("Rodent()");
+	}
+
 	void run() {
 		System.out.println("Rodent.run()");
 	}
@@ -13,6 +21,12 @@ class Rodent {
 }
 
 class Mouse extends Rodent {
+	private Description d = new Description("Mouse description");
+
+	public Mouse() {
+		print("Mouse()");
+	}
+
 	void run() {
 		System.out.println("Mouse.run()");
 	}
@@ -23,6 +37,12 @@ class Mouse extends Rodent {
 }
 
 class Gerbil extends Rodent {
+	private Description d = new Description("Gerbil description");
+
+	public Gerbil() {
+		print("Gerbil()");
+	}
+
 	void run() {
 		System.out.println("Gerbil.run()");
 	}
@@ -33,6 +53,12 @@ class Gerbil extends Rodent {
 }
 
 class Hamster extends Rodent {
+	private Description d = new Description("Hamster description");
+
+	public Hamster() {
+		print("Hamster()");
+	}
+
 	void run() {
 		System.out.println("Hamster.run()");
 	}
