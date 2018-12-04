@@ -96,7 +96,7 @@ public class Exercise9 {
 			r[i] = next();
 		}
 		f(r);
-		System.out.println("   fdsafdsfdsafdsfa");
+		System.out.println("   fdsafdsfdsafasfdsafdsfa");
 	}
 
 }
