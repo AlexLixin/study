@@ -1,2 +1,3 @@
 ## tij4exercises
-There are some code for the exercises of Thinking in Java
+Thinking in Java 4th Edition (Bruce Eckel)
+My Solutions to the Exercises, packaged by Chapter
