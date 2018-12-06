@@ -1,4 +1,4 @@
-package polymorphism;
+package polymorphism.exercise;
 
 class Exer10Base {
 	void f1() {

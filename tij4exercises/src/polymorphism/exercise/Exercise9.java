@@ -1,4 +1,4 @@
-package polymorphism;
+package polymorphism.exercise;
 
 import java.util.Random;
 
