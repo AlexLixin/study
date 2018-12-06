@@ -2,7 +2,32 @@ package polymorphism.exercise;
 
 import java.util.Random;
 
+import static net.mindview.util.Print.*;
+
+class Description {
+	private String s;
+
+	Description(String s) {
+		this.s = s;
+		print("Creating Description " + s);
+	}
+
+	protected void dispose() {
+		print("disposing Description " + s);
+	}
+}
+
 class Rodent {
+	private Description d = new Description("rodent description");
+	private Shared s;
+
+	public Rodent() {
+		print("Rodent()");
+	}
+	public Rodent(Shared s) {
+		print("Rodent()");
+	}
+
 	void run() {
 		System.out.println("Rodent.run()");
 	}
@@ -13,6 +38,17 @@ class Rodent {
 }
 
 class Mouse extends Rodent {
+	private Description d = new Description("Mouse description");
+	private Shared s;
+
+	public Mouse(Shared s2) {
+		print("Mouse()");
+	}
+
+	public Mouse() {
+		print("Mouse()");
+	}
+
 	void run() {
 		System.out.println("Mouse.run()");
 	}
@@ -23,6 +59,17 @@ class Mouse extends Rodent {
 }
 
 class Gerbil extends Rodent {
+	private Description d = new Description("Gerbil description");
+	private Shared s;
+
+	public Gerbil(Shared s2) {
+		print("Gerbil()");
+	}
+
+	public Gerbil() {
+		print("Gerbil()");
+	}
+
 	void run() {
 		System.out.println("Gerbil.run()");
 	}
@@ -33,6 +80,17 @@ class Gerbil extends Rodent {
 }
 
 class Hamster extends Rodent {
+	private Description d = new Description("Hamster description");
+	private Shared s;
+
+	public Hamster() {
+		print("Hamster()");
+	}
+
+	public Hamster(Shared s2) {
+		print("Hamster()");
+	}
+
 	void run() {
 		System.out.println("Hamster.run()");
 	}
