@@ -15,11 +15,19 @@ class Unicycle extends Cycle {
 		wheels(1);
 	}
 
+	void balance() {
+		System.out.println("balance()");
+	}
+
 }
 
 class Bicycle extends Cycle {
 	void ride() {
 		wheels(2);
+	}
+
+	void balance() {
+		System.out.println("balance()");
 	}
 
 }
@@ -41,6 +49,15 @@ public class Exercise1 {
 		r(new Unicycle());
 		r(new Bicycle());
 		r(new Tricycle());
+
+		Cycle[] c = { new Unicycle(), new Bicycle(), new Tricycle() };
+/*		c[0].balance();
+		c[1].balance();
+		c[2].balance();*/
+		
+		((Unicycle)c[0]).balance();
+		((Unicycle)c[1]).balance();
+		((Unicycle)c[2]).balance();
 	}
 
 }
