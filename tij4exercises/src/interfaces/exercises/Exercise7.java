@@ -1,50 +1,34 @@
+/************************************************************************
+ *                                                                      *
+ *  DDDD     SSSS    AAA        Daten- und Systemtechnik Aachen GmbH    *
+ *  D   D   SS      A   A       Pascalstrasse 28                        *
+ *  D   D    SSS    AAAAA       52076 Aachen-Oberforstbach, Germany     *
+ *  D   D      SS   A   A       Telefon: +49 (0)2408 / 9492-0           *
+ *  DDDD    SSSS    A   A       Telefax: +49 (0)2408 / 9492-92          *
+ *                                                                      *
+ *                                                                      *
+ *  (c) Copyright by DSA - all rights reserved                          *
+ *                                                                      *
+ ************************************************************************
+ *
+ * Initial Creation:
+ *    Author      LXI
+ *    Created on  Dec 11, 2018
+ *
+ ************************************************************************/
 package interfaces.exercises;
 
 import java.util.Random;
 
 import static net.mindview.util.Print.*;
 
-class Shared {
-    private int refcount = 0;
-    private static long counter = 0;
-    private final long id = counter++;
-
-    public Shared() {
-        print("Creating " + this);
-    }
-
-    public void addRef() {
-        refcount++;
-    }
-
-    protected void dispose() {
-        if (--refcount == 0)
-            print("Disposing " + this);
-    }
-
-    public String toString() {
-        return "Shared " + id;
-    }
-
-    public void showRefocunt() {
-        print("refcount = " + refcount);
-    }
-
-    @Override
-    protected void finalize() throws Throwable {
-        if (refcount > 0)
-            print("Error: " + refcount + " Shared " + id + " objects in use");
-    }
-
-}
-
-class Description {
+class Description1 {
     private Shared shared;
     private static long counter = 0;
     private final long id = counter++;
     private String s;
 
-    Description(String s, Shared shared) {
+    Description1(String s, Shared shared) {
         this.s = s;
         this.shared = shared;
         this.shared.addRef();
@@ -63,55 +47,38 @@ class Description {
 
 }
 
-abstract class Rodent {
-    private Shared shared;
-    private static long counter = 0;
-    private final long id = counter++;
-    private Description1 d; //$NON-NLS-1$
+interface Rodent1 {
+    void run();
 
-    public Rodent() {
-        print("Rodent()"); //$NON-NLS-1$
-    }
+    void eat();
 
-    public Rodent(Shared s) {
-        this.shared = s;
-        d = new Description1("rodent description", this.shared);
-        print("Creating " + this); //$NON-NLS-1$
-        this.shared.addRef();
-    }
-
-    abstract void run();
-
-    abstract void eat();
-
-    @Override
-    public String toString() {
-        return this.getClass().getSimpleName() + id;
-    }
+    public String toString();
 }
 
-class Mouse extends Rodent {
+class Mouse1 implements Rodent1 {
     private Shared shared;
     private static long counter = 0;
     private final long id = counter++;
-    private Description1 d; //$NON-NLS-1$
+    private Description d; //$NON-NLS-1$
 
-    public Mouse(Shared s2) {
+    public Mouse1(Shared s2) {
         print("Creating " + this); //$NON-NLS-1$
         this.shared = s2;
-        d = new Description1("Mouse description", this.shared);
+        d = new Description("Mouse description", this.shared);
         this.shared.addRef();
     }
 
-    public Mouse() {
+    public Mouse1() {
         print("Mouse()"); //$NON-NLS-1$
     }
 
-    void run() {
+    @Override
+    public void run() {
         System.out.println("Mouse.run()"); //$NON-NLS-1$
     }
 
-    void eat() {
+    @Override
+    public void eat() {
         System.out.println("Mouse.eat()"); //$NON-NLS-1$
     }
 
@@ -121,28 +88,28 @@ class Mouse extends Rodent {
     }
 }
 
-class Gerbil extends Rodent {
+class Gerbil1 implements Rodent1 {
     private Shared shared;
     private static long counter = 0;
     private final long id = counter++;
-    private Description1 d; //$NON-NLS-1$
+    private Description d; //$NON-NLS-1$
 
-    public Gerbil(Shared s2) {
+    public Gerbil1(Shared s2) {
         print("Creating " + this); //$NON-NLS-1$
         this.shared = s2;
-        d = new Description1("Gerbil description", this.shared);
+        d = new Description("Gerbil description", this.shared);
         this.shared.addRef();
     }
 
-    public Gerbil() {
+    public Gerbil1() {
         print("Gerbil()"); //$NON-NLS-1$
     }
 
-    void run() {
+    public void run() {
         System.out.println("Gerbil.run()"); //$NON-NLS-1$
     }
 
-    void eat() {
+    public void eat() {
         System.out.println("Gerbil.eat()"); //$NON-NLS-1$
     }
 
@@ -152,28 +119,30 @@ class Gerbil extends Rodent {
     }
 }
 
-class Hamster extends Rodent {
+class Hamster1 implements Rodent1 {
     private Shared shared;
     private static long counter = 0;
     private final long id = counter++;
-    private Description1 d; //$NON-NLS-1$
+    private Description d; //$NON-NLS-1$
 
-    public Hamster() {
+    public Hamster1() {
         print("Hamster()"); //$NON-NLS-1$
     }
 
-    public Hamster(Shared s2) {
+    public Hamster1(Shared s2) {
         print("Creating " + this); //$NON-NLS-1$
         this.shared = s2;
-        d = new Description1("Hamster description", this.shared);
+        d = new Description("Hamster description", this.shared);
         this.shared.addRef();
     }
 
-    void run() {
+    @Override
+    public void run() {
         System.out.println("Hamster.run()"); //$NON-NLS-1$
     }
 
-    void eat() {
+    @Override
+    public void eat() {
         System.out.println("Hamster.eat()"); //$NON-NLS-1$
     }
 
@@ -183,7 +152,7 @@ class Hamster extends Rodent {
     }
 }
 
-public class Exercise1 {
+public class Exercise7 {
     private static Random rand = new Random();
 
     public static Rodent1 next() {
