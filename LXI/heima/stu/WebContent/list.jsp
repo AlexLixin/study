@@ -14,6 +14,10 @@
 					window.location.href = "DeleteServlet?sid=" + sid;
 				}
 			}
+
+			function doEdit(sid) {
+				window.location.href = "EditServlet?sid=" + sid;
+			}
 		</script>
 	</head>
 
@@ -21,7 +25,19 @@
 		<table border="1" width="1000">
 			<tr>
 				<td colspan="8">
-					<a href="add.jsp">添加</a>
+					<form action="QueryServlet" method="post">
+						按姓名查询
+						<input type="text" name="sname"/>
+						按性别查询
+						<select name="gender">
+							<option value="">请选择</option>
+							<option value="男">男</option>
+							<option value="女">女</option>
+						</select>
+						<input type="submit" value="查询" />
+						<a href="add.jsp">添加</a>
+					</form>
+
 				</td>
 			</tr>
 			<tr align="center">
@@ -44,7 +60,7 @@
 					<td>${stu.hobby}</td>
 					<td>${stu.info}</td>
 					<td>
-						<a href="#">更新</a>
+						<a href="#" onclick="doEdit(${stu.sid})">更新</a>
 						<a href="#" onclick="doDelete(${stu.sid})">删除</a>
 					</td>
 				</tr>

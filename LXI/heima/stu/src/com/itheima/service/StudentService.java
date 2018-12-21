@@ -16,4 +16,10 @@ public interface StudentService {
     void insert(Student student) throws SQLException;
 
     void delete(String sid)throws SQLException;
+
+    List<Student> find(String sid)throws SQLException;
+
+    void update(Student student)throws SQLException;
+
+    List<Student> findAll(String sname, String gender)throws SQLException;
 }

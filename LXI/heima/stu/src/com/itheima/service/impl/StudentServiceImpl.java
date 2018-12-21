@@ -33,4 +33,22 @@ public class StudentServiceImpl implements StudentService {
         dao.delete(sid);
     }
 
+    @Override
+    public List<Student> find(String sid) throws SQLException {
+        StudentDao dao = new StudentDaoImpl();
+        return dao.find(sid);
+    }
+
+    @Override
+    public void update(Student student) throws SQLException {
+        StudentDao dao = new StudentDaoImpl();
+        dao.update(student);
+    }
+
+    @Override
+    public List<Student> findAll(String sname, String gender) throws SQLException {
+        StudentDao dao = new StudentDaoImpl();
+        return dao.findAll(sname,gender);
+    }
+
 }
