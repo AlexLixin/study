@@ -4,7 +4,7 @@
 	<!-- default-config 默认的配置，  -->
   <default-config>
     <property name="driverClass">com.mysql.cj.jdbc.Driver</property>
-    <property name="jdbcUrl">jdbc:mysql://localhost/stus?characterEncoding=utf8</property>
+    <property name="jdbcUrl">jdbc:mysql://localhost/stus?serverTimezone=GMT%2B8</property>
     <property name="user">root</property>
     <property name="password">Lx211314</property>
     
