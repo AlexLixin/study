@@ -1,27 +1,8 @@
-/************************************************************************
- *                                                                      *
- *  DDDD     SSSS    AAA        Daten- und Systemtechnik Aachen GmbH    *
- *  D   D   SS      A   A       Pascalstrasse 28                        *
- *  D   D    SSS    AAAAA       52076 Aachen-Oberforstbach, Germany     *
- *  D   D      SS   A   A       Telefon: +49 (0)2408 / 9492-0           *
- *  DDDD    SSSS    A   A       Telefax: +49 (0)2408 / 9492-92          *
- *                                                                      *
- *                                                                      *
- *  (c) Copyright by DSA - all rights reserved                          *
- *                                                                      *
- ************************************************************************
- *
- * Initial Creation:
- *    Author      LXI
- *    Created on  Dec 21, 2018
- *
- ************************************************************************/
-package holding.exercises;
-
-import java.util.ArrayList;
-import java.util.List;
-
+package innerclasses.example;
 import innerclasses.exercises.Exercise2;
+
+//: innerclasses/Sequence.java
+// Holds a sequence of Objects.
 
 interface Selector {
 
@@ -32,27 +13,32 @@ interface Selector {
     void next();
 }
 
-class Sequence {
-    private List<Object> items = new ArrayList<>();
+public class Sequence {
+    private Object[] items;
     private int next = 0;
 
+    public Sequence(int size) {
+        items = new Object[size];
+    }
+
     public void add(Object x) {
-            items.add(next++, x);
+        if (next < items.length)
+            items[next++] = x;
     }
 
     private class SequenceSelector implements Selector {
         private int i = 0;
 
         public boolean end() {
-            return i == items.size() - 1;
+            return i == items.length - 1;
         }
 
         public Object current() {
-            return items.get(i);
+            return items[i];
         }
 
         public void next() {
-            if (i < items.size())
+            if (i < items.length)
                 i++;
         }
 
@@ -63,7 +49,7 @@ class Sequence {
 
     public Selector reverseSelector() {
         return new Selector() {
-            private int i = items.size() - 1;
+            private int i = items.length - 1;
 
             @Override
             public void next() {
@@ -79,7 +65,7 @@ class Sequence {
 
             @Override
             public Object current() {
-                return items.get(i);
+                return items[i];
             }
         };
     }
@@ -88,11 +74,8 @@ class Sequence {
         return new SequenceSelector();
     }
 
-}
-
-public class Exercise3 {
     public static void main(String[] args) {
-        Sequence sequence = new Sequence();
+        Sequence sequence = new Sequence(13);
         for (int i = 0; i < 10; i++)
             sequence.add(Integer.toString(i));
         sequence.add(new Exercise2().getExer2());
@@ -110,4 +93,6 @@ public class Exercise3 {
             reverseSelector.next();
         }
     }
-}
+} /* Output:
+  0 1 2 3 4 5 6 7 8 9
+  *///:~
