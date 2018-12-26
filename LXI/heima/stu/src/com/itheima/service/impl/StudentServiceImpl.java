@@ -16,9 +16,9 @@ import com.itheima.service.StudentService;
 public class StudentServiceImpl implements StudentService {
 
     @Override
-    public List<Student> findAll() throws SQLException {
+    public List<Student> findAll(int rowCount) throws SQLException {
         StudentDao dao = new StudentDaoImpl();
-        return dao.findAll();
+        return dao.findAll(rowCount);
     }
 
     @Override

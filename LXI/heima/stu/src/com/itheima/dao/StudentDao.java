@@ -8,9 +8,10 @@ import com.itheima.domain.*;
 public interface StudentDao {
     /**
      * 查询所有学生
+     * @param rowCount 
      * @return List<Student>
      */
-    List<Student> findAll() throws SQLException;
+    List<Student> findAll(int rowCount) throws SQLException;
 
     /**
      * 添加学生

@@ -18,9 +18,9 @@ public class StudentDaoImpl implements StudentDao {
      * @exception SQLException
      */
     @Override
-    public List<Student> findAll() throws SQLException {
+    public List<Student> findAll(int rowCount) throws SQLException {
         QueryRunner runner = new QueryRunner(JDBCUtil02.getDataSource());
-        String sql = "select * from stu"; //$NON-NLS-1$
+        String sql = "select * from stu"+" limit "+ rowCount; //$NON-NLS-1$
         return runner.query(sql, new BeanListHandler<Student>(Student.class));
     }
 

@@ -11,7 +11,7 @@ import com.itheima.domain.Student;
  *
  */
 public interface StudentService {
-    List<Student> findAll() throws SQLException;
+    List<Student> findAll(int rowCount) throws SQLException;
 
     void insert(Student student) throws SQLException;
 

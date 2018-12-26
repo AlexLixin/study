@@ -9,6 +9,7 @@
 <body>
 	<h3>
 		<a href="StudentListServlet">显示所有学生列表</a>
+		<a href="StudentListPageServlet?currentPage=1">分页显示学生列表</a>
 	</h3>
 </body>
 </html>

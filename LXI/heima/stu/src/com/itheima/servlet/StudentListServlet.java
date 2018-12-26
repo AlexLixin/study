@@ -39,7 +39,10 @@ public class StudentListServlet extends HttpServlet {
         try {
             //1.查询出来所有的学生
             StudentService service = new StudentServiceImpl();
-            List<Student> list = service.findAll();
+            //搜索时分页,每页rowCount个
+            int rowCount = 5;
+            List<Student> list = service.findAll(rowCount);
+            request.setAttribute("rowCount", rowCount);
             request.setAttribute("list", list);
             
             //2.先把数据存储到作用域中
