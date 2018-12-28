@@ -5,6 +5,7 @@
 	<classpathentry kind="src" path="holding"/>
 	<classpathentry kind="src" path="innerclasses"/>
 	<classpathentry kind="src" path="exceptions"/>
+	<classpathentry kind="src" path="string"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
