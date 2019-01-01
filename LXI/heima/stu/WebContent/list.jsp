@@ -65,11 +65,6 @@
 				</td>
 			</tr>
 		</c:forEach>
-			<tr>
-				<td colspan="8">
-					第${currentPageNum}/${pageCount}页  每页显示${rowCount}条  总记录数 ${list.size()}  <a href="index.jsp">首页</a> | <a href="">上一页</a><a href="">下一页</a> | <a href="">尾页</a>
-				</td>
-			</tr>
 	</table>
 </body>
 
