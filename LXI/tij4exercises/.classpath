@@ -6,6 +6,7 @@
 	<classpathentry kind="src" path="innerclasses"/>
 	<classpathentry kind="src" path="exceptions"/>
 	<classpathentry kind="src" path="string"/>
+	<classpathentry kind="src" path="typeinfo"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
