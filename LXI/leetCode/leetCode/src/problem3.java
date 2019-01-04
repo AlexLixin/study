@@ -28,3 +28,7 @@ public class problem3 {
         System.out.println(lengthOfLongestSubstring("abcabcbb")); //$NON-NLS-1$
     }
 }
+
+/*
+ *Runtime: 233 ms, faster than 6.07% of Java online submissions for Longest Substring Without Repeating Characters.
+ */
