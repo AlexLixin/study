@@ -2,4 +2,4 @@
 Thinking in Java 4th Edition (Bruce Eckel)
 My Solutions to the Exercises, packaged by Chapter.
 
-Now，Interface is finished
+Now，chapter "String" is finished.
