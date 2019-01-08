@@ -3,11 +3,13 @@
 package typeinfo.pets;
 import java.util.*;
 
+import typeinfo.exercises.Exercise15;
+
 public class Pets {
   public static final PetCreator creator =
-    new LiteralPetCreator();
+    new Exercise15();
   public static Pet randomPet() {
-    return creator.randomPet();
+    return Exercise15.createRandom();
   }
   public static Pet[] createArray(int size) {
     return creator.createArray(size);

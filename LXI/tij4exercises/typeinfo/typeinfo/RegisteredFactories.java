@@ -12,23 +12,23 @@ class Part {
         return getClass().getSimpleName();
     }
 
-    static List<Factory<? extends Part>> partFactories = new ArrayList<Factory<? extends Part>>();
+    static List<Class<? extends Part>> partFactories = new ArrayList<Class<? extends Part>>();
     static {
         // Collections.addAll() gives an "unchecked generic
         // array creation ... for varargs parameter" warning.
-        partFactories.add(new FuelFilter.Factory());
-        partFactories.add(new AirFilter.Factory());
-        partFactories.add(new CabinAirFilter.Factory());
-        partFactories.add(new OilFilter.Factory());
-        partFactories.add(new FanBelt.Factory());
-        partFactories.add(new PowerSteeringBelt.Factory());
-        partFactories.add(new GeneratorBelt.Factory());
+        partFactories.add(FuelFilter.class);
+        partFactories.add(AirFilter.class);
+        partFactories.add(CabinAirFilter.class);
+        partFactories.add(OilFilter.class);
+        partFactories.add(FanBelt.class);
+        partFactories.add(PowerSteeringBelt.class);
+        partFactories.add(GeneratorBelt.class);
     }
     private static Random rand = new Random(47);
 
-    public static Part createRandom() {
+    public static Part createRandom() throws InstantiationException, IllegalAccessException {
         int n = rand.nextInt(partFactories.size());
-        return partFactories.get(n).create();
+        return partFactories.get(n).newInstance();
     }
 }
 
@@ -96,7 +96,7 @@ class PowerSteeringBelt extends Belt {
 }
 
 public class RegisteredFactories {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InstantiationException, IllegalAccessException {
         for (int i = 0; i < 10; i++)
             System.out.println(Part.createRandom());
 
