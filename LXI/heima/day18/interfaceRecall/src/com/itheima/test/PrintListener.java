@@ -13,21 +13,11 @@
  *
  * Initial Creation:
  *    Author      LXI
- *    Created on  Jan 9, 2019
+ *    Created on  Jan 14, 2019
  *
  ************************************************************************/
 package com.itheima.test;
 
-/**
- *
- *  2018
- *
- * */
-public class B implements PrintListener {
-
-    @Override
-    public void printFive() {
-        System.out.println("B.printFive()"); //$NON-NLS-1$
-    }
-
+public interface PrintListener {
+    public void printFive();
 }

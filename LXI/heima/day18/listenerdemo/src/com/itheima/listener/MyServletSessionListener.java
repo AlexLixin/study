@@ -13,21 +13,27 @@
  *
  * Initial Creation:
  *    Author      LXI
- *    Created on  Jan 9, 2019
+ *    Created on  Jan 14, 2019
  *
  ************************************************************************/
-package com.itheima.test;
+package com.itheima.listener;
 
-/**
- *
- *  2018
- *
- * */
-public class B implements PrintListener {
+import javax.servlet.annotation.WebListener;
+import javax.servlet.http.HttpSessionEvent;
+import javax.servlet.http.HttpSessionListener;
+
+@WebListener
+public class MyServletSessionListener implements HttpSessionListener {
 
     @Override
-    public void printFive() {
-        System.out.println("B.printFive()"); //$NON-NLS-1$
+    public void sessionCreated(HttpSessionEvent se) {
+        System.out.println("sessionCreated"); //$NON-NLS-1$
+
+    }
+
+    @Override
+    public void sessionDestroyed(HttpSessionEvent se) {
+        System.out.println("sessionDestroyed"); //$NON-NLS-1$
     }
 
 }

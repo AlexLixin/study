@@ -13,21 +13,28 @@
  *
  * Initial Creation:
  *    Author      LXI
- *    Created on  Jan 9, 2019
+ *    Created on  Jan 14, 2019
  *
  ************************************************************************/
-package com.itheima.test;
+package com.itheima.listener;
 
-/**
- *
- *  2018
- *
- * */
-public class B implements PrintListener {
+import javax.servlet.ServletRequestEvent;
+import javax.servlet.ServletRequestListener;
+import javax.servlet.annotation.WebListener;
+
+
+@WebListener
+public class MyServletRequestListener implements ServletRequestListener{
 
     @Override
-    public void printFive() {
-        System.out.println("B.printFive()"); //$NON-NLS-1$
+    public void requestDestroyed(ServletRequestEvent sre) {
+        System.out.println("request destroyed!");
+
+    }
+
+    @Override
+    public void requestInitialized(ServletRequestEvent sre) {
+        System.out.println("request requestInitialized!");
     }
 
 }

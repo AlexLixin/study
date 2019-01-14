@@ -18,20 +18,11 @@
  ************************************************************************/
 package com.itheima.test;
 
-import java.util.Date;
 
 public class Test {
     public static void main(String[] args) {
-        int i = 43214321;
-        System.out.println(System.nanoTime());
-
-        System.out.println(i);
-
-        System.out.println(System.nanoTime());
-
-        System.out.println(Integer.toString(i));
-
-        System.out.println(System.nanoTime());
-
+        A a = new A();
+        PrintListener c = new B();
+        a.print(c);
     }
 }

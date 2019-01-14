@@ -13,21 +13,27 @@
  *
  * Initial Creation:
  *    Author      LXI
- *    Created on  Jan 9, 2019
+ *    Created on  Jan 14, 2019
  *
  ************************************************************************/
-package com.itheima.test;
+package com.itheima.listener;
 
-/**
- *
- *  2018
- *
- * */
-public class B implements PrintListener {
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
+
+@WebListener
+public class MyServletContextListener implements ServletContextListener {
 
     @Override
-    public void printFive() {
-        System.out.println("B.printFive()"); //$NON-NLS-1$
+    public void contextInitialized(ServletContextEvent sce) {
+        System.out.println("ServletContext initialized!");
+    }
+
+    @Override
+    public void contextDestroyed(ServletContextEvent sce) {
+        System.out.println("ServletContext destroyed!");
+
     }
 
 }
