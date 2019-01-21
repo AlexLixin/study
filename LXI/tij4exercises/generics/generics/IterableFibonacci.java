@@ -16,21 +16,43 @@
  *    Created on  Jan 21, 2019
  *
  ************************************************************************/
-package generics.exercises;
+package generics;
 
-import generics.RandomList;
+import java.util.Iterator;
 
-public class Exercise6 {
-    public static void main(String[] args) {
-        RandomList<Integer> rl = new RandomList<>();
-        Integer[] intArray = {3,4,5,6,7,29};
-        for (Integer integer : intArray) {
-            rl.add(integer);
+public class IterableFibonacci extends Fibonacci implements Iterable<Integer> {
+
+    private int i;
+
+    public IterableFibonacci(int i) {
+        this.i = i;
+    }
+
+    private class FibonacciIterator implements Iterator<Integer> {
+
+        @Override
+        public boolean hasNext() {
+            return i > 0;
         }
 
-        for (Integer integer : intArray) {
-            integer.byteValue();
-            System.out.println(rl.select());
+        @Override
+        public Integer next() {
+            i--;
+            return IterableFibonacci.this.next();
+        }
+
+    }
+
+    @Override
+    public Iterator<Integer> iterator() {
+        return new FibonacciIterator();
+    }
+
+    public static void main(String[] args) {
+        IterableFibonacci iterableFibonacci = new IterableFibonacci(18);
+        for (Integer integer : iterableFibonacci) {
+            System.out.println(integer);
         }
     }
+
 }

@@ -18,19 +18,46 @@
  ************************************************************************/
 package generics.exercises;
 
-import generics.RandomList;
+import java.util.Iterator;
 
-public class Exercise6 {
+import generics.Fibonacci;
+
+public class Exercise7 {
     public static void main(String[] args) {
-        RandomList<Integer> rl = new RandomList<>();
-        Integer[] intArray = {3,4,5,6,7,29};
-        for (Integer integer : intArray) {
-            rl.add(integer);
-        }
-
-        for (Integer integer : intArray) {
-            integer.byteValue();
-            System.out.println(rl.select());
+        CompositeFibonacci compositeFibonacci = new CompositeFibonacci(18);
+        for (Integer i : compositeFibonacci) {
+            System.out.println(i);
         }
     }
+
+}
+
+class CompositeFibonacci implements Iterable<Integer> {
+    private Fibonacci f = new Fibonacci();
+    private int count;
+
+    public CompositeFibonacci(int count) {
+        this.count = count;
+    }
+
+    private class FibonacciIterator implements Iterator<Integer> {
+
+        @Override
+        public boolean hasNext() {
+            return count > 0;
+        }
+
+        @Override
+        public Integer next() {
+            count--;
+            return f.next();
+        }
+
+    }
+
+    @Override
+    public Iterator<Integer> iterator() {
+        return new FibonacciIterator();
+    }
+
 }

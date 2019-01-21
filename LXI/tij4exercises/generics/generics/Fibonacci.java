@@ -16,21 +16,32 @@
  *    Created on  Jan 21, 2019
  *
  ************************************************************************/
-package generics.exercises;
+package generics;
 
-import generics.RandomList;
+import net.mindview.util.Generator;
 
-public class Exercise6 {
+public class Fibonacci implements Generator<Integer> {
+
+    private static int count = 0;
+
+    public Fibonacci() {
+    }
+
+    private Integer f(Integer i) {
+        if (i < 2)
+            return 1;
+        return f(i - 1) + f(i - 2);
+    }
+
+    @Override
+    public Integer next() {
+        return f(count++);
+    }
+
     public static void main(String[] args) {
-        RandomList<Integer> rl = new RandomList<>();
-        Integer[] intArray = {3,4,5,6,7,29};
-        for (Integer integer : intArray) {
-            rl.add(integer);
-        }
-
-        for (Integer integer : intArray) {
-            integer.byteValue();
-            System.out.println(rl.select());
+        Fibonacci fibonacci = new Fibonacci();
+        for (int i = 0; i < 10; i++) {
+            System.out.print(fibonacci.next()+" ");
         }
     }
 }

@@ -16,7 +16,7 @@
  *    Created on  Jan 21, 2019
  *
  ************************************************************************/
-package generic;
+package generics;
 
 import java.util.ArrayList;
 import java.util.Random;

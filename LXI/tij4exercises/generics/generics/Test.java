@@ -16,7 +16,7 @@
  *    Created on  Jan 11, 2019
  *
  ************************************************************************/
-package generic;
+package generics;
 
 
 import javax.xml.bind.DatatypeConverter;

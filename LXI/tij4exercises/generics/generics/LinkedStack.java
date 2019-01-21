@@ -16,7 +16,7 @@
  *    Created on  Jan 21, 2019
  *
  ************************************************************************/
-package generic;
+package generics;
 
 public class LinkedStack<T> {
     private static class Node<U> {

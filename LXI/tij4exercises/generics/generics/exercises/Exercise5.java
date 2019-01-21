@@ -16,7 +16,7 @@
  *    Created on  Jan 21, 2019
  *
  ************************************************************************/
-package generic.exercises;
+package generics.exercises;
 
 
 public class Exercise5 {

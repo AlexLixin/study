@@ -16,21 +16,8 @@
  *    Created on  Jan 21, 2019
  *
  ************************************************************************/
-package generics.exercises;
+package generics.coffee;
 
-import generics.RandomList;
+public class Mocha extends Coffee{
 
-public class Exercise6 {
-    public static void main(String[] args) {
-        RandomList<Integer> rl = new RandomList<>();
-        Integer[] intArray = {3,4,5,6,7,29};
-        for (Integer integer : intArray) {
-            rl.add(integer);
-        }
-
-        for (Integer integer : intArray) {
-            integer.byteValue();
-            System.out.println(rl.select());
-        }
-    }
 }
