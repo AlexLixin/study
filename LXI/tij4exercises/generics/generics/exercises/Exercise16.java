@@ -1,6 +1,5 @@
 /************************************************************************
  *                                                                      *
-
  *  DDDD     SSSS    AAA        Daten- und Systemtechnik Aachen GmbH    *
  *  D   D   SS      A   A       Pascalstrasse 28                        *
  *  D   D    SSS    AAAAA       52076 Aachen-Oberforstbach, Germany     *
@@ -14,12 +13,21 @@
  *
  * Initial Creation:
  *    Author      LXI
- *    Created on  Dec 28, 2018
+ *    Created on  Jan 30, 2019
  *
  ************************************************************************/
+package generics.exercises;
 
-public class Test {
+import net.mindview.util.SixTuple;
+import static net.mindview.util.Tuple.*;
+
+public class Exercise16 {
+    static SixTuple<Vehicle, Amphibian, String, Integer, Double, Character> f() {
+        return tuple(new Vehicle(), new Amphibian(), new String("hi"), new Integer(47), new Double(11.1), new Character('x'));
+
+    }
+
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        System.out.println(f());
     }
 }
