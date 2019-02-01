@@ -4,25 +4,25 @@ package net.mindview.util;
 import java.util.*;
 
 public class Sets {
-    static <T> Set<T> union(Set<T> a, Set<T> b) {
+    public static <T> Set<T> union(Set<T> a, Set<T> b) {
         Set<T> result = new HashSet<T>(a);
         result.addAll(b);
         return result;
     }
 
-    static <T> Set<T> intersection(Set<T> a, Set<T> b) {
+    public static <T> Set<T> intersection(Set<T> a, Set<T> b) {
         Set<T> result = new HashSet<T>(a);
         result.containsAll(b);
         return result;
     }
 
-    static <T> Set<T> difference(Set<T> a, Set<T> b) {
+    public static <T> Set<T> difference(Set<T> a, Set<T> b) {
         Set<T> result = new HashSet<T>(a);
         result.removeAll(b);
         return result;
     }
 
-    static <T> Set<T> complement(Set<T> a, Set<T> b) {
+    public static <T> Set<T> complement(Set<T> a, Set<T> b) {
         return difference(union(a, b), intersection(a, b));
     }
 
