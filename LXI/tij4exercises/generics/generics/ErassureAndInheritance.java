@@ -18,34 +18,37 @@
  ************************************************************************/
 package generics;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+class GenericBase<T> {
+    private T element;
 
-class Frob {
+    public void set(T arg) {
+        arg = element;
+    }
+
+    public T get() {
+        return element;
+    }
+
 }
 
-class Fnorkle {
+class Derived1<T> extends GenericBase<T> {
+
 }
 
-class Quark<Q> {
+class Derived2 extends GenericBase {
+
 }
 
-class Particle<POSITION, MOMENTUM> {
-}
+//class Derived3 extends GenericBase<?> {}
+//Strange error:
+//unexpected type found : ?
+//required: class or interface without bounds
 
-public class LostInformation {
+public class ErassureAndInheritance {
+    @SuppressWarnings("unchecked")
     public static void main(String[] args) {
-        List<Frob> list = new ArrayList<>();
-        Map<Frob, Fnorkle> map = new HashMap<Frob, Fnorkle>();
-        Quark<Fnorkle> quark = new Quark<Fnorkle>();
-        Particle<Long, Double> p = new Particle<Long, Double>();
-        System.out.println(Arrays.toString(list.getClass().getTypeParameters()));
-        System.out.println(Arrays.toString(map.getClass().getTypeParameters()));
-        System.out.println(Arrays.toString(quark.getClass().getTypeParameters()));
-        System.out.println(Arrays.toString(p.getClass().getTypeParameters()));
-
+        Derived2 d2 = new Derived2();
+        Object obj = d2.get();
+        d2.set(obj); // Warning here!
     }
 }

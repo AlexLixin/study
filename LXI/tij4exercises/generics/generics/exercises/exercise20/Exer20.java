@@ -16,36 +16,24 @@
  *    Created on  Feb 19, 2019
  *
  ************************************************************************/
-package generics;
+package generics.exercises.exercise20;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+public class Exer20 implements Exer {
 
-class Frob {
-}
+    @Override
+    public void f() {
 
-class Fnorkle {
-}
-
-class Quark<Q> {
-}
-
-class Particle<POSITION, MOMENTUM> {
-}
-
-public class LostInformation {
-    public static void main(String[] args) {
-        List<Frob> list = new ArrayList<>();
-        Map<Frob, Fnorkle> map = new HashMap<Frob, Fnorkle>();
-        Quark<Fnorkle> quark = new Quark<Fnorkle>();
-        Particle<Long, Double> p = new Particle<Long, Double>();
-        System.out.println(Arrays.toString(list.getClass().getTypeParameters()));
-        System.out.println(Arrays.toString(map.getClass().getTypeParameters()));
-        System.out.println(Arrays.toString(quark.getClass().getTypeParameters()));
-        System.out.println(Arrays.toString(p.getClass().getTypeParameters()));
-
+        System.out.println("f()"); //$NON-NLS-1$
     }
+
+    @Override
+    public void g() {
+
+        System.out.println("g()"); //$NON-NLS-1$
+    }
+
+    public void h() {
+        System.out.println("h()"); //$NON-NLS-1$
+    }
+
 }
