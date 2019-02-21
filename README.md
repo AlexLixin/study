@@ -3,3 +3,5 @@
 prepare mac environment
 
 learn perl soap
+
+now i have learned C++ map
