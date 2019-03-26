@@ -40,13 +40,13 @@ class IntegerFactory implements Factory<Integer> {
 
 }
 
-class Wiget {
+class Widget {
 
-    public static class FactoryW implements Factory<Wiget> {
+    public static class FactoryW implements Factory<Widget> {
 
         @Override
-        public Wiget c() {
-            return new Wiget();
+        public Widget c() {
+            return new Widget();
         }
 
     }
@@ -55,7 +55,7 @@ class Wiget {
 public class FactoryConstraint {
     public static void main(String[] args) {
         new Foo<Integer>(new IntegerFactory());
-        new Foo<Wiget>(new Wiget.FactoryW());
+        new Foo<Widget>(new Widget.FactoryW());
     }
 }
 
