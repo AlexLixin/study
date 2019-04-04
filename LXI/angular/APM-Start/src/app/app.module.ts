@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './products/product-list.componenet';
+import { ngModuleJitUrl } from '@angular/compiler';
+import { NgModule } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { ProductListComponent } from './products/product-list.componenet';
     ProductListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   bootstrap: [AppComponent]
 })
