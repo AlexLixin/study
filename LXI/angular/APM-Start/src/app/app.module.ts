@@ -5,12 +5,14 @@ import { ProductListComponent } from './products/product-list.componenet';
 import { ngModuleJitUrl } from '@angular/compiler';
 import { NgModule } from '@angular/core';
 import { ConvertToSpacesPipe } from './shared/convert-to-spaces.pipe';
+import { StarComponent } from './shared/star.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
-    ConvertToSpacesPipe
+    ConvertToSpacesPipe,
+    StarComponent
   ],
   imports: [
     BrowserModule,
