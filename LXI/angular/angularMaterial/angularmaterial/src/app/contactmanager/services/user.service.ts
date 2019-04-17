@@ -12,13 +12,11 @@ export class UserService {
   private _users: BehaviorSubject<User[]>;
 
   private dataStore: {
-    users: User[];
+    users: User[]
   }
 
   constructor(private http: HttpClient) {
-    this.dataStore = {
-      users: []
-    };
+    this.dataStore = { users: [] };
     this._users = new BehaviorSubject<User[]>([]);
   }
 
@@ -33,11 +31,12 @@ export class UserService {
   loadAll() {
     const usersUrl = 'https://angular-material-api.azurewebsites.net/users';
 
-    return this.http.get<User[]>(usersUrl).subscribe(data => {
-      this.dataStore.users = data;
-      this._users.next(Object.assign({}, this.dataStore).users);
-    }, error => {
-      console.log("Filed to fetch users");
-    })
+    return this.http.get<User[]>(usersUrl)
+      .subscribe(data => {
+        this.dataStore.users = data;
+        this._users.next(Object.assign({}, this.dataStore).users);
+      }, error => {
+        console.log("Failed to fetch users");
+      });
   }
 }
