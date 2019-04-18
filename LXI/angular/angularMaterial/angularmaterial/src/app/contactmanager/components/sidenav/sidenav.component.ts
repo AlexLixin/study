@@ -17,23 +17,34 @@ export class SidenavComponent implements OnInit {
   private mediaMatcher: MediaQueryList = matchMedia(`(max-width: ${SMALL_WIDTH_BREAKPOINT}px)`);
 
   users: Observable<User[]>;
+  isDarkTheme: boolean = false;
+  dir: string = 'ltr';
 
   constructor(
     zone: NgZone,
     private userService: UserService,
     private router: Router) {
-    this.mediaMatcher.addListener(mql => 
+    this.mediaMatcher.addListener(mql =>
       zone.run(() => this.mediaMatcher = matchMedia(`(max-width: ${SMALL_WIDTH_BREAKPOINT}px)`)));
   }
 
   @ViewChild(MatSidenav) sidenav: MatSidenav;
 
+  toggleDir() {
+    this.dir = this.dir == 'ltr' ? 'rtl' : 'ltr';
+    this.sidenav.toggle().then(()=> this.sidenav.toggle())
+  }
+
+  toggleTheme() {
+    this.isDarkTheme = !this.isDarkTheme;
+  }
+
   ngOnInit() {
     this.users = this.userService.users;
     this.userService.loadAll();
 
-    this.router.events.subscribe(()=>{
-      if(this.isScreenSmall())
+    this.router.events.subscribe(() => {
+      if (this.isScreenSmall())
         this.sidenav.close();
     })
   }
