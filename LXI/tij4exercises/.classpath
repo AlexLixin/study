@@ -11,6 +11,7 @@
 	<classpathentry kind="src" path="net"/>
 	<classpathentry kind="src" path="arrays"/>
 	<classpathentry kind="src" path="containers"/>
+	<classpathentry kind="src" path="io"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
