@@ -77,7 +77,7 @@ public class AtUnitExample4 {
 
     public static void main(String[] args) throws Exception {
         System.out.println("starting");
-        OSExecute.command("java net.mindview.atunit.AtUnit AtUnitExample4");
+        OSExecute.command("java -cp D:\\workspace\\study\\tij4exercises\\bin net.mindview.atunit.AtUnit bin/annotations/AtUnitExample4");
     }
 } /* Output:
   starting
