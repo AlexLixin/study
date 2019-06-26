@@ -14,6 +14,7 @@
 	<classpathentry kind="src" path="io"/>
 	<classpathentry kind="src" path="enumerated"/>
 	<classpathentry kind="src" path="annotations"/>
+	<classpathentry kind="src" path="concurrency"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="lib" path="lib/xom-1.3.2.jar"/>
 	<classpathentry kind="lib" path="lib/apt-mirror-api-0.1.jar"/>
