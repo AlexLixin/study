@@ -17,18 +17,21 @@ public class Exercise1 {
 
 class E1 implements Runnable {
 
+    private static int taskCount = 0;
+    private final int id = taskCount++;
+
     public E1() {
-        System.out.println("E1() created!");
+        System.out.println("Thread-" + id + ": " + "E1() created!");
     }
 
     @Override
     public void run() {
-        System.out.println("message");
+        System.out.println("Thread-" + id + ": " + "message");
         Thread.yield();
-        System.out.println("message");
+        System.out.println("Thread-" + id + ": " + "message");
         Thread.yield();
-        System.out.println("message");
+        System.out.println("Thread-" + id + ": " + "message");
         Thread.yield();
-        System.out.println("E1() end!");
+        System.out.println("Thread-" + id + ": " + "E1() end!");
     }
 }
