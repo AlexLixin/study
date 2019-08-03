@@ -28,7 +28,7 @@ class TaskPortion implements Runnable {
 			doWork();
 			latch.countDown();
 		} catch (InterruptedException ex) {
-//Acceptable way to exit
+			//Acceptable way to exit
 		}
 	}
 
@@ -71,7 +71,7 @@ public class CountDownLatchDemo {
 
 	public static void main(String[] args) throws Exception {
 		ExecutorService exec = Executors.newCachedThreadPool();
-// All must share a single CountDownLatch object:
+		// All must share a single CountDownLatch object:
 		CountDownLatch latch = new CountDownLatch(SIZE);
 		for (int i = 0; i < 10; i++)
 			exec.execute(new WaitingTask(latch));
