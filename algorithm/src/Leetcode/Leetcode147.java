@@ -1,32 +1,30 @@
 package Leetcode;
 
-class Node {
-	public Node next;
-	public int data;
-
-	public Node() {
-	}
-
-	public Node(Node next, int data) {
-		this.next = next;
-		this.data = data;
-	}
-
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		Node p = this;
-		while(p!=null) {
-			sb.append(p.data+"->");
-			p=p.next;
-		}
-		String string = sb.toString();
-		return string.substring(0,string.length()-2);
-	}
-	
-}
-
 public class Leetcode147 {
+
+	private static class Node {
+		public Node next;
+		public int data;
+
+		public Node(Node next, int data) {
+			this.next = next;
+			this.data = data;
+		}
+
+		@Override
+		public String toString() {
+			StringBuilder sb = new StringBuilder();
+			Node p = this;
+			while (p != null) {
+				sb.append(p.data + "->");
+				p = p.next;
+			}
+			String string = sb.toString();
+			return string.substring(0, string.length() - 2);
+		}
+
+	}
+
 	public static void main(String[] args) {
 		test1();
 		test2();
@@ -39,7 +37,7 @@ public class Leetcode147 {
 	}
 
 	private static void test1() {
-		Node head = new Node(new Node(new Node(new Node(new Node(null,0), 4), 3), 5), -1);
+		Node head = new Node(new Node(new Node(new Node(new Node(null, 0), 4), 3), 5), -1);
 		Node sorted = sort(head);
 		System.out.println(sorted);
 	}
@@ -69,7 +67,7 @@ public class Leetcode147 {
 			} else {
 				sortedR = current;
 			}
-			
+
 		}
 		return sortedL;
 	}
