@@ -1,4 +1,8 @@
 package Leetcode;
+
+import java.util.Deque;
+import java.util.LinkedList;
+
 /*
 使用栈实现队列的下列操作：
 
@@ -26,6 +30,47 @@ queue.empty(); // 返回 false
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/implement-queue-using-stacks
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。*/
+class MyQueue {
+    
+    Deque<Integer> stack1;
+    Deque<Integer> stack2;
+    
+    /** Initialize your data structure here. */
+    public MyQueue() {
+        stack1 = new LinkedList<Integer>();
+        stack2 = new LinkedList<Integer>();
+    }
+    
+    /** Push element x to the back of queue. */
+    public void push(int x) {
+        stack1.push(x);
+    }
+    
+    /** Removes the element from in front of queue and returns that element. */
+    public int pop() {
+        if(stack2.isEmpty()){
+            for(int i=0; i<stack1.size();i++){
+                stack2.push(stack1.pop());
+            }
+        }
+        return stack2.pop();
+    }
+    
+    /** Get the front element. */
+    public int peek() {
+        if(stack2.isEmpty()){
+            for(int i=0; i<stack1.size();i++){
+                stack2.push(stack1.pop());
+            }
+        }
+        return stack2.peek();
+    }
+    
+    /** Returns whether the queue is empty. */
+    public boolean empty() {
+        return stack1.isEmpty()&&stack2.isEmpty();
+    }
+}
 
 public class Leetcode232 {
 
