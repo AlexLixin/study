@@ -100,6 +100,7 @@ public class Leetcode20 {
 				}
 			}
 		}
+		
 
 		if (stack.isEmpty()) {
 			return "valid";
